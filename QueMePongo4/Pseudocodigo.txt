@@ -1,0 +1,87 @@
+class Prenda {
+	
+  int temperaturaMax;
+  Trama trama;
+  Color colorPrimario;
+  color colorSecundario;
+  TipoPrenda tipoPrenda;
+  Material material;
+  
+  public Prenda(int temperaturaMax, ...){
+  ...
+  }
+
+  method getTemperatura(){
+  	return tipoPrenda.getTemperaturaMaxima;
+  }
+  
+}
+
+---------------------------------------------
+
+class TipoPrenda {
+  int temperaturaMaxima;
+  Categoria categoria;
+  
+  public TipoPrenda(Categoria categoria, int tempMax){
+  	this.categoria = categoria;
+    this.temperaturaMaxima = tempMax;
+  }
+  
+constant ZAPATO = new TipoDePrenda(CALZADO)
+constant REMERA = new TipoDePrenda(PARTE_SUPERIOR)
+constant PANTALON = new TipoDePrenda(PARTE_INFERIOR)
+...
+  
+  public int getTemperaturaMaxima(){
+		return this.temperaturaMaxima;
+	}
+  
+}
+
+------------------------------------------------
+
+class Sugerencia {
+	
+  String ciudad;
+	Clima clima = new Clima(Ciudad);
+  List<Map<String, Object>> climaActual = clima.getTemperaturaActual(ciudad);
+  Prenda parteSuperior;
+  Prenda parteInferior;
+  Prenda calzado;
+  Prenda accesorio;
+  
+  public Sugerencia (String ciudad, Prenda parteSuperior, ...){
+  	if(this.esTemperaturaCorrecta(parteSuperior))
+      this.parteSuperior = parteSuperior
+    ...
+  }
+  
+  public boolean esTemperaturaCorrecta(Prenda prenda, Clima clima){
+		if(prenda.getTemperatura() < climaActual.get(0).get("Value"));
+    	return true;
+    else return false;
+}
+  
+  --------------------------------------------------------------------
+  
+class Clima {
+
+    public final List<Map<String, Object>> getTemperaturaActual(String ciudad) {
+		return Arrays.asList(new HashMap<String, Object>(){{
+			put("DateTime", "2019-05-03T01:00:00-03:00");
+			put("EpochDateTime", 1556856000);
+			put("WeatherIcon", 33);
+			put("IconPhrase", "Clear");
+			put("IsDaylight", false);
+			put("PrecipitationProbability", 0);
+			put("MobileLink", "http://m.accuweather.com/en/ar/villa-vil/7984/");
+			put("Link", "http://www.accuweather.com/en/ar/villa-vil/7984");
+			put("Temperature", new HashMap<String, Object>(){{
+				put("Value", 57);
+				put("Unit", "F");
+				put("UnitType", 18);
+			}});
+		}});
+	}
+}
